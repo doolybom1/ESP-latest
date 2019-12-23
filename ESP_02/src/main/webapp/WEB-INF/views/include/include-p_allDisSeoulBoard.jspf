@@ -96,6 +96,30 @@ function field_focus(){
 }
 
 
+
+}
+.area-search{
+    
+    justify-content: space-between;
+    padding:10px;
+
+}
+.area-btn, .writeButton{
+    width:60px;
+    height: 40px;
+    font-weight: bold;
+    margin: 8px 5px;
+}
+.writeButton{
+	margin-right:4rem;
+}
+
+.searchVal{
+    width:50%;
+    height: 35px;
+    margin: 8px auto;
+    margin-right: 10px;
+}
 </style>
 
 
@@ -103,12 +127,6 @@ function field_focus(){
 
 
 <body>
-        
-
-
-
-
-
 
 
 
@@ -117,7 +135,26 @@ function field_focus(){
         <a>${disName} 정책 모음입니다</a>
 
     </div>
-
+<div class="searchValForm" style="margin-left=5px;" >
+    
+    
+    
+    	<c:choose>
+			<c:when test="${not empty SEARCHVAL}">
+				<c:set var="SEARCHVAL" value="${SEARCHVAL}"/>
+				<p class="searchValue">입력된 검색어:<a>${SEARCHVAL}</a></p>
+			</c:when>
+		</c:choose>
+    
+    
+    <form onsubmit="return false;" method="post" class="area-search" style="display:flex; background-color: rgb(47,79,79); width:565px;">
+    
+    	
+        <input onkeypress="enterKey()" type="text" name="searchVal" placeholder="정책내용을 검색" value=""  class="searchVal" id="searchVal"/>
+        <button type="button" onclick="field_focus();" class="area-btn">검색</button>
+        <button type="button" class="writeButton" onclick="document.location.href='${rootPath}/esp/area/inputarea'">정책등록</button>
+    </form>
+</div>
     <br/>
     <br/>
      <br/>
@@ -216,26 +253,7 @@ function field_focus(){
 	
 
    
-    <div class="searchValForm">
     
-    
-    
-    	<c:choose>
-			<c:when test="${not empty SEARCHVAL}">
-				<c:set var="SEARCHVAL" value="${SEARCHVAL}"/>
-				<p class="searchValue">입력된 검색어:<a>${SEARCHVAL}</a></p>
-			</c:when>
-		</c:choose>
-    
-    
-    <form onsubmit="return false;" method="post" >
-    
-    	
-        <input onkeypress="enterKey()" type="text" name="searchVal" placeholder="정책내용을 검색" value=""  class="searchVal" id="searchVal"/>
-        <button type="button" onclick="field_focus();">검색</button>
-        <button type="button" class="writeButton" onclick="document.location.href='${rootPath}/esp/area/inputarea'">정책등록</button>
-    </form>
-	</div>
 
 
 
