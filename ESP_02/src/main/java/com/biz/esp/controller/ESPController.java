@@ -24,12 +24,6 @@ public class ESPController {
 		
 		return "/intro";
 	}
-//	로그인 페이지
-	@RequestMapping(value="/login", method=RequestMethod.GET)
-	public String login(Model model) {
-		
-		return "/login/login";
-	}
 	
 	
 	/*															--- 외부 컨트롤러로 뺌

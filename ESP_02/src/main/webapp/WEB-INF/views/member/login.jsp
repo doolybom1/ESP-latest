@@ -1,13 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<c:set var="rootPath" value="${pageContext.request.contextPath}" />
+    pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="rootPath" 
+	value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset='utf-8'>
-    <title>취업지원정보 - 로그인</title>
-    <style>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	body{
+        background-color: rgb(245,246,247);
+    }
     .login{
         width: 410px;
         position: absolute;
@@ -72,19 +76,31 @@
     section.login{
         border-radius: 5px;
     }
-    body{
-        background-color: rgb(245,246,247);
-    }
     
+    #lb:hover{
+    	cursor: pointer;
+    }
     
     </style>
 </head>
 <body>
-    <section class="login">
+
+</body>
+<form action="${rootPath}/member/login" method="POST" class="login-form">
+	<section class="login">
             <h2>LOGIN</h2>
+            
+            <c:if test="${LOGIN_MSG == 'FAIL' }">		
+				<h3>아이디나 비번이 잘못되었습니다.</h3>
+			</c:if>
+			
+			<c:if test="${LOGIN_MSG == 'TRY' }">		
+				<h3>로그인을 해야 합니다.</h3>
+			</c:if>
+			
             <ul>
-                <li><input type="text" placeholder="아이디" title="아이디입력"></li>
-                <li><input type="password" placeholder="비밀번호" title="비밀번호입력"></li>
+                <li><input type="text" name="u_id" placeholder="아이디" title="아이디입력"></li>
+                <li><input type="password" name="u_password" placeholder="비밀번호" title="비밀번호입력"></li>
                 <li><a href="${rootPath}/"><button id="lb">로그인</button></a></li>
             </ul>
             
@@ -94,5 +110,5 @@
                 <a href="">비밀번호찾기</a>
             </div>
     </section>
-</body>
+</form>
 </html>

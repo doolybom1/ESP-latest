@@ -46,14 +46,27 @@ public class UserServiceImp implements UserService {
 
 	@Override
 	public boolean userLoginCheck(UserDTO userDTO) {
-		// TODO Auto-generated method stub
-		return false;
+		String inU_id = userDTO.getU_id();
+		String inU_pass = userDTO.getU_password();
+		
+		UserDTO userRDTO = uDao.findById(inU_id);
+		
+		if(userRDTO == null) {
+			return false;
+		}
+		String sU_id = userRDTO.getU_id();
+		String sPassword = userRDTO.getU_password();
+		if(sU_id.equals(inU_id) && sPassword.equals(inU_pass)) {
+			return true;
+		}else {
+			return false;
+		}
 	}
 
 	@Override
 	public UserDTO getUser(String u_id) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return uDao.findById(u_id);
 	}
 
 }

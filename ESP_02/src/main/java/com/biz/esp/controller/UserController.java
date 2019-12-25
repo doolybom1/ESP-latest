@@ -1,5 +1,6 @@
 package com.biz.esp.controller;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,6 +54,16 @@ public class UserController {
 		model.addAttribute("u_id", u_id);
 		
 		return "user/idcheck";
+	}
+	
+	
+	
+	@RequestMapping(value="/mypage",method=RequestMethod.GET)
+	public String mypage(Model model,HttpSession httpSession) {
 		
+		UserDTO userDTO 
+			= (UserDTO)httpSession.getAttribute("userDTO");
+		model.addAttribute("userDTO",userDTO);
+		return "user/insert";
 	}
 }
