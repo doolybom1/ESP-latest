@@ -28,6 +28,16 @@
 				)
  	
  	</insert>
+ 	
+ 	<update id="update" parameterType="UserDTO">
+		UPDATE tbl_user SET
+			U_PASSWORD = #{u_password,jdbcType=VARCHAR},
+			U_NAME = #{u_name,jdbcType=VARCHAR},
+			U_EMAIL = #{u_email,jdbcType=VARCHAR},
+			U_ADDR = #{u_addr,jdbcType=VARCHAR},
+			U_TEL = #{u_tel,jdbcType=VARCHAR}
+		WHERE U_ID = #{u_id}
+	</update>
 
  </mapper> 
  

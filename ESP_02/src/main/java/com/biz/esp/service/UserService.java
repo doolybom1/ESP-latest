@@ -49,5 +49,8 @@ public interface UserService {
 	public UserDTO getUser(String u_id);
 
 
+
+	public int update(UserDTO userDTO);
+
 	
 }

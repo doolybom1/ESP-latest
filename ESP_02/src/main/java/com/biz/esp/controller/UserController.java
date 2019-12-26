@@ -10,6 +10,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.support.SessionStatus;
 
 import com.biz.esp.domain.UserDTO;
 import com.biz.esp.service.UserService;
@@ -59,11 +60,21 @@ public class UserController {
 	
 	
 	@RequestMapping(value="/mypage",method=RequestMethod.GET)
-	public String mypage(Model model,HttpSession httpSession) {
+	public String mypage(Model model, HttpSession httpSession) {
 		
-		UserDTO userDTO 
-			= (UserDTO)httpSession.getAttribute("userDTO");
-		model.addAttribute("userDTO",userDTO);
+		UserDTO userDTO = (UserDTO)httpSession.getAttribute("userDTO");
+		UserDTO uDTO = uService.getUser(userDTO.getU_id());
+		model.addAttribute("userDTO",uDTO);
 		return "user/insert";
+	
+	}
+	
+	@RequestMapping(value="/mypage",method=RequestMethod.POST)
+	public String mypage(@ModelAttribute UserDTO userDTO, Model model,SessionStatus sStatus) {
+				
+		int ret = uService.update(userDTO);
+		sStatus.setComplete();
+		return "redirect:/";
+	
 	}
 }

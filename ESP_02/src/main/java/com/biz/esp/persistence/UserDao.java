@@ -9,5 +9,5 @@ public interface UserDao {
 
 	public UserDTO findById(String u_id);
 	
-	
+	public int update(UserDTO userDTO); 
 }

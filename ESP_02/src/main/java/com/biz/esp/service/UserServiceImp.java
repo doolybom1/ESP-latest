@@ -69,4 +69,11 @@ public class UserServiceImp implements UserService {
 		return uDao.findById(u_id);
 	}
 
+	@Override
+	public int update(UserDTO userDTO) {
+		
+		return uDao.update(userDTO);
+	}
+
+
 }
