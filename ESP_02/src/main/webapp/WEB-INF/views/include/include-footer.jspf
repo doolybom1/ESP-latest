@@ -12,11 +12,10 @@
       <li class="opinion"><a href="${rootPath}/opinion">개선의견수렴</a></li>
    </ul>
    <div id="footer-bottom">
-   <p>Employment Support Policy<br/><br/>
-   광주광역시 북구 중흥1동 경양로 170 한국경영원 인재개발원 505</p>
+   <p>Employment Support Policy<br/><br/></p>
    
    </div>
    <ul>
-      <li>CopyRight &copy; bjmin17@naver.com doolybom1@google.com akakoko2@gmail.com</li>
+      <li>CopyRight &copy; bjmin17@naver.com, doolybom1@gmail.com, akakoko2@gmail.com</li>
    </ul>
 </footer>

@@ -143,18 +143,6 @@ public class ReferenceController {
 	@RequestMapping(value="/update", method=RequestMethod.POST)
 	public String update(@ModelAttribute("referenceDTO") ReferenceDTO referenceDTO, Model model) {
 		
-		// Service의 update 메서드를 이용해서 memoDTO를 전달
-//		ReferenceDTO rDTO = referenceDTO;	
-//		Date date = new Date();
-//		SimpleDateFormat sd = new SimpleDateFormat("yyyy.MM.dd");
-//		SimpleDateFormat st = new SimpleDateFormat("HH:mm:ss");
-//		
-//		String dateD = sd.format(date);
-//		st.format(date);
-//		long lSeq = rDTO.getD_seq();
-//		log.debug("시퀀스 번호 : " + lSeq);
-//		rDTO.setD_date(dateD);
-//		rDTO.setD_writer("관리자");
 		int ret = rService.update(referenceDTO);
 		return "redirect:/reference/rlist?searchField=&search=";
 	}
